@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" th:href="@{images/typer.png}" type="image/x-icon" />
+
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" th:href="@{styles/index.css}" />
+
+    <title>Register - Typer</title>
+</head>
+<body>
+<div class="container d-flex align-items-center justify-content-center" style="height: 100%;">
+    <div class="shadow-sm rounded" style="background-color: #ffffff;padding: 80px;min-width: 500px;">
+        <img
+                alt="Typer Logo"
+                width="70"
+                class="mx-auto d-block rounded"
+                th:src="@{images/typer.png}"
+        />
+        <h3 class="my-4 text-center">Create an account</h3>
+
+        <form method="post" th:method="POST" th:action="@{/users/signUp}" th:object="${user}">
+
+        <input
+                class="form-control"
+                type="text"
+                placeholder="Username"
+                name="username"
+                aria-label="username input"
+                th:field="*{username}"
+        />
+            <p th:if="${#fields.hasErrors('username')}"
+               th:text="${#strings.listJoin(#fields.errors('username'), ', ')}" class="text-danger"></p>
+
+        <input
+                class="form-control my-3"
+                type="text"
+                placeholder="Email Address"
+                name="emailAddress"
+                aria-label="email address input"
+                th:field="*{emailAddress}"
+        />
+            <p th:if="${#fields.hasErrors('emailAddress')}"
+               th:text="${#strings.listJoin(#fields.errors('emailAddress'), ', ')}" class="text-danger"></p>
+
+        <input
+                class="form-control"
+                type="text"
+                placeholder="Password"
+                name="password"
+                aria-label="password input"
+                th:field="*{password}"
+        />
+            <p th:if="${#fields.hasErrors('password')}"
+               th:text="${#strings.listJoin(#fields.errors('password'), ', ')}" class="text-danger"></p>
+
+       <button type="submit" class="btn w-100 my-4 authentication-button" style="background-color: #231e3c;color: #ffffff;">
+            Register
+        </button>
+        </form>
+
+        <p class="fw-light">
+            Already have an account?
+            <a th:href="@{/}" class="text-decoration-none">Login</a>
+        </p>
+    </div>
+</div>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>

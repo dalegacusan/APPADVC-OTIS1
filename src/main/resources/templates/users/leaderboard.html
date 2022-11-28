@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" th:href="@{images/typer.png}" type="image/x-icon" />
+
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="\styles\index.css" />
+
+    <title>Leaderboards - Typer</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-white shadow-sm">
+    <div class="container-sm">
+        <a class="navbar-brand" th:href="@{/guest}">Typer</a>
+        <div class="d-flex">
+            <a th:href="@{/guest/leaderboards}"
+            ><button class="btn" type="button">Leaderboards</button></a
+            >
+            <div class="dropdown d-flex">
+                <button
+                        class="btn dropdown-toggle"
+                        type="button"
+                        id="dropdownMenu2"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                >
+                    Username
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li>
+                        <a th:href="@{/guest/history}" style="text-decoration: none">
+                            <button class="dropdown-item" type="button">
+                                Game History
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/login}" style="text-decoration: none">
+                            <button class="dropdown-item" type="button">Logout</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-sm leaderboards-container" style="margin-top: 60px">
+    <h4 class="mb-4">Leaderboards</h4>
+
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="d-flex">
+                <div class="me-auto">1. Username</div>
+                <div class="me-5">241.32 wpm</div>
+                <div>2115 points</div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="d-flex">
+                <div class="me-auto">2. Username</div>
+                <div class="me-5">176.00 wpm</div>
+                <div>1566 points</div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="d-flex">
+                <div class="me-auto">3. Username</div>
+                <div class="me-5">178.90 wpm</div>
+                <div>786 points</div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="d-flex">
+                <div class="me-auto">4. Username</div>
+                <div class="me-5">51.76 wpm</div>
+                <div>289 points</div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="d-flex">
+                <div class="me-auto">5. Username</div>
+                <div class="me-5">45.00 wpm</div>
+                <div>218 points</div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="d-flex">
+                <div class="me-auto">6. Username</div>
+                <div class="me-5">67.90 wpm</div>
+                <div>214 points</div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="d-flex">
+                <div class="me-auto">7. Username</div>
+                <div class="me-5">98.99 wpm</div>
+                <div>102 points</div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="d-flex">
+                <div class="me-auto">8. Username</div>
+                <div class="me-5">32.89 wpm</div>
+                <div>87 points</div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="d-flex">
+                <div class="me-auto">9. Username</div>
+                <div class="me-5">23.00 wpm</div>
+                <div>56 points</div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="d-flex">
+                <div class="me-auto">10. Username</div>
+                <div class="me-5">32.22 wpm</div>
+                <div>12 points</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>

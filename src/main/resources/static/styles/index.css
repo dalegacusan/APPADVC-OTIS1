@@ -1,0 +1,9 @@
+body {
+  height: 100vh;
+  background-color: #fafafa;
+}
+
+.authentication-button:hover {
+  background-color: #38344f;
+  color: #ffffff;
+}
