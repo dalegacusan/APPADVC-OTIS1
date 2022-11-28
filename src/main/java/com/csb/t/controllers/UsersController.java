@@ -2,6 +2,7 @@ package com.csb.t.controllers;
 
 import com.csb.t.dtos.SignUpDTO;
 import com.csb.t.dtos.SignInDTO;
+import com.csb.t.entities.Users;
 import com.csb.t.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,11 +21,11 @@ public class UsersController {
 
     @PostMapping("/signUp")
     public String signUp(
-            @Validated @ModelAttribute("user") SignUpDTO user,
+            @Validated @ModelAttribute("newUser") SignUpDTO user,
             BindingResult bindingResult,
             Model model){
         if(bindingResult.hasErrors()){
-            model.addAttribute("user", user);
+            model.addAttribute("newUser", user);
 
             return "authentication/signUp";
         }
@@ -36,12 +37,18 @@ public class UsersController {
 
     @PostMapping("/signIn")
     public String signIn(
-            @Validated @ModelAttribute("user") SignInDTO user,
+            @Validated @ModelAttribute("existingUser") SignInDTO user,
             BindingResult bindingResult,
             Model model){
         if(bindingResult.hasErrors()){
-            model.addAttribute("user", user);
+            model.addAttribute("existingUser", user);
 
+            return "authentication/signIn";
+        }
+
+        Users existingUser = usersService.findOneByEmail(user.getEmailAddress());
+
+        if(existingUser == null){
             return "authentication/signIn";
         }
 

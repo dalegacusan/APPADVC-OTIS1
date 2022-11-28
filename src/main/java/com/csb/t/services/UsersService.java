@@ -6,14 +6,15 @@ import com.csb.t.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.security.MessageDigest;
-import java.security.SecureRandom;
 import java.time.LocalDateTime;
 
 @Service
 public class UsersService {
-    @Autowired
     private UsersRepository usersRepository;
+
+    public UsersService(UsersRepository uRepository){
+        this.usersRepository = uRepository;
+    }
 
     public Users addOne(SignUpDTO user){
         Users newUser = new Users();
@@ -26,4 +27,10 @@ public class UsersService {
 
         return usersRepository.save(newUser);
     }
+
+    public Users findOneByEmail(String email){
+        return usersRepository.findByEmail(email);
+    }
 }
+
+

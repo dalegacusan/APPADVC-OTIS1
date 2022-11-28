@@ -34,11 +34,13 @@ public class SignUpDTO {
     @Length(max = 50, message = "Username must be equal to or less than {max} characters")
     private String username;
 
+    @NotBlank(message = "Email Address is required.")
     @Email(message = "Please enter a valid email address.")
     @Length(min = 6, message = "Email Address must be at least {min} characters")
     @Length(max = 200, message = "Email Address must be equal to or less than {max} characters")
     private String emailAddress;
 
+    @NotBlank(message = "Password is required.")
     @Length(min = 6, message = "Password must be at least {min} characters")
     @Length(max = 20, message = "Password must be equal to or less than {max} characters")
     private String password;

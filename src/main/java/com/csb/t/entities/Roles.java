@@ -8,10 +8,10 @@ public class Roles {
     @Id
     @GeneratedValue(strategy =
             GenerationType.IDENTITY)
-    private Long RoleId;
+    private Long roleid;
 
     @Column(name = "role", nullable = false, length = 50)
-    private String Role;
+    private String role;
 
     public Roles(){}
 }

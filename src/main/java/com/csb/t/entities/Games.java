@@ -8,14 +8,14 @@ public class Games {
     @Id
     @GeneratedValue(strategy =
             GenerationType.IDENTITY)
-    private Long GameId;
+    private Long gameid;
 
     @ManyToOne
     @JoinColumn(name = "userid", nullable = false)
     private Users users;
 
     @Column(name = "score", nullable = false)
-    private int Score;
+    private int score;
 
     public Games(){}
 }

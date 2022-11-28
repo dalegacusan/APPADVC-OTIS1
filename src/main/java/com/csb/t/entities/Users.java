@@ -10,62 +10,62 @@ public class Users {
     @Id
     @GeneratedValue(strategy =
             GenerationType.IDENTITY)
-    private Long UserId;
+    private Long userid;
 
     @Column(name = "username", nullable = false, length = 50)
-    private String Username;
+    private String username;
 
     @Column(name = "email", nullable = false, length = 200)
-    private String Email;
+    private String email;
 
     @Column(name = "password", nullable = false, length = 20)
-    private String Password;
+    private String password;
 
     @Column(name = "roleid", nullable = false)
-    private int RoleId;
+    private int roleid;
 
     @Column(name = "datecreated", updatable = false, nullable = false)
     @CreationTimestamp
-    private LocalDateTime dateCreated;
+    private LocalDateTime datecreated;
 
     public String getUsername() {
-        return Username;
+        return this.username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getEmail() {
-        return Email;
+        return this.email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPassword() {
-        return Password;
+        return this.password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public int getRoleId() {
-        return RoleId;
+        return this.roleid;
     }
 
     public void setRoleId(int roleId) {
-        RoleId = roleId;
+        this.roleid = roleId;
     }
 
     public LocalDateTime getDateCreated() {
-        return dateCreated;
+        return this.datecreated;
     }
 
     public void setDateCreated(LocalDateTime dateCreated) {
-        this.dateCreated = dateCreated;
+        this.datecreated = dateCreated;
     }
 
     public Users(){}

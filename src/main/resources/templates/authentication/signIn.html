@@ -30,7 +30,7 @@
 
         <h3 class="my-4 text-center">Login to your account</h3>
 
-        <form th:method="POST" th:action="@{/users/signIn}" th:object="${user}">
+        <form method="post" th:method="POST" th:action="@{/users/signIn}" th:object="${existingUser}">
             <input
                     class="form-control"
                     type="text"
