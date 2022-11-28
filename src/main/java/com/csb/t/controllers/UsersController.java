@@ -5,6 +5,7 @@ import com.csb.t.dtos.SignInDTO;
 import com.csb.t.entities.Users;
 import com.csb.t.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,7 +33,7 @@ public class UsersController {
 
         usersService.addOne(user);
 
-        return "users/home";
+        return "redirect:/users/home";
     }
 
     @PostMapping("/signIn")
@@ -46,12 +47,17 @@ public class UsersController {
             return "authentication/signIn";
         }
 
-        Users existingUser = usersService.findOneByEmail(user.getEmailAddress());
+        Users existingUser = usersService.validateUser(user);
 
         if(existingUser == null){
             return "authentication/signIn";
         }
 
-        return "users/home";
+        // Redirect to ADMINISTRATOR DASHBOARD if Role is ADMINISTRATOR
+        if(existingUser.getRoleId() == 2){
+            return "redirect:/admin/home";
+        }
+
+        return "redirect:/users/home";
     }
 }

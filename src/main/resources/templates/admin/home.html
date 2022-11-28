@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" th:href="@{images/typer.png}" type="image/x-icon" />
+
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="\styles\index.css" />
+
+    <title>Administrator Dashboard - Typer</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-white shadow-sm">
+    <div class="container-sm">
+        <a class="navbar-brand" th:href="@{/admin}">Typer</a>
+        <div class="d-flex">
+            <div class="dropdown d-flex">
+                <button
+                        class="btn dropdown-toggle"
+                        type="button"
+                        id="dropdownMenu2"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                >
+                    Username
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li>
+                        <a th:href="@{/login}" style="text-decoration: none">
+                            <button class="dropdown-item" type="button">Logout</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-sm leaderboards-container" style="margin-top: 60px">
+    <h4 class="mb-4">Administrator Dashboard</h4>
+
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Username</th>
+            <th scope="col">Points</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>212 points</td>
+                <td>
+                    <a th:href="@{/admin}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>45 points</td>
+                <td>
+                    <a th:href="@{/admin}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>342 points</td>
+                <td>
+                    <a th:href="@{/admin}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Michael</td>
+                <td>1822 points</td>
+                <td>
+                    <a th:href="@{/admin}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>Bryan</td>
+                <td>56 points</td>
+                <td>
+                    <a th:href="@{/admin}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>Kevin</td>
+                <td>895 points</td>
+                <td>
+                    <a th:href="@{/admin}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>Edward</td>
+                <td>2877 points</td>
+                <td>
+                    <a th:href="@{/admin}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>Joshua</td>
+                <td>2312 points</td>
+                <td>
+                    <a th:href="@{/admin}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>Carl</td>
+                <td>992 points</td>
+                <td>
+                    <a th:href="@{/admin}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>
