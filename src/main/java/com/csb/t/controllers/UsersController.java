@@ -21,23 +21,6 @@ public class UsersController {
     @Autowired
     private UsersService usersService;
 
-    @GetMapping("/home")
-    public String redirectToHome(Model model){
-        model.addAttribute("newGame", new SaveGameDTO());
-
-        return "users/home";
-    }
-
-    @GetMapping("/history")
-    public String redirectToGameHistory(){
-        return "users/history";
-    }
-
-    @GetMapping("/leaderboards")
-    public String redirectToLeaderboards(){
-        return "users/leaderboard";
-    }
-
     @PostMapping("/signUp")
     public String signUp(
             @Validated @ModelAttribute("newUser") SignUpDTO user,
@@ -51,7 +34,7 @@ public class UsersController {
 
         usersService.addOne(user);
 
-        return "redirect:/users/home";
+        return "redirect:/games";
     }
 
     @PostMapping("/signIn")
@@ -75,6 +58,6 @@ public class UsersController {
             return "redirect:/signIn";
         }
 
-        return "redirect:/users/home";
+        return "redirect:/games";
     }
 }

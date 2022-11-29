@@ -20,9 +20,9 @@
 <body>
 <nav class="navbar navbar-light bg-white shadow-sm">
     <div class="container-sm">
-        <a class="navbar-brand" th:href="@{/users/home}">Typer</a>
+        <a class="navbar-brand" th:href="@{/games}">Typer</a>
         <div class="d-flex">
-            <a th:href="@{/users/leaderboards}"
+            <a th:href="@{/games/leaderboards}"
             ><button class="btn" type="button">Leaderboards</button></a
             >
             <div class="dropdown d-flex">
@@ -37,7 +37,7 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <li>
-                        <a th:href="@{/users/history}" style="text-decoration: none">
+                        <a th:href="@{/games/history}" style="text-decoration: none">
                             <button class="dropdown-item" type="button">
                                 Game History
                             </button>
