@@ -28,6 +28,14 @@ public class Users {
     @CreationTimestamp
     private LocalDateTime datecreated;
 
+    public Long getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Long userid) {
+        this.userid = userid;
+    }
+
     public String getUsername() {
         return this.username;
     }

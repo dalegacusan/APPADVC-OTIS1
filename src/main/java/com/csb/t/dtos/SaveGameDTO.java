@@ -25,6 +25,7 @@ public class SaveGameDTO {
     @Positive(message = "Invalid score")
     private int score;
 
+    @Min(value = 1, message = "Round must be at least 1")
     @Positive(message = "Invalid round")
     private int round;
 }

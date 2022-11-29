@@ -249,7 +249,10 @@ const endGame = () => {
   endGameRound.innerText = state.round - 1;
   scoreInput.value = state.score;
   roundInput.value = state.round - 1;
-  show(endGameScoreWrapper);
+
+  if(scoreInput.value !== "0" && roundInput.value !== "1"){
+    show(endGameScoreWrapper);
+  }
 
   // set placeholder to "start" and empty textfield
   textField.placeholder = "start";
