@@ -21,12 +21,10 @@ public class SaveGameDTO {
         this.round = round;
     }
 
-    @NotBlank(message = "Score is required.")
     @Min(value = 1, message = "Score must be at least 1")
     @Positive(message = "Invalid score")
     private int score;
 
-    @NotBlank(message = "Round is required.")
     @Positive(message = "Invalid round")
     private int round;
 }

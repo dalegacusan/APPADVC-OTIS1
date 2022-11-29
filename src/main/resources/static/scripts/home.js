@@ -9,7 +9,6 @@ const endGameScoreWrapper = document.getElementById("end_game_score_wrapper");
 const endGameScore = document.getElementById("end_game_score");
 const endGameRound = document.getElementById("end_game_round");
 const scoreInput = document.getElementById("scoreInput");
-const usernameInput = document.getElementById("usernameInput");
 const roundInput = document.getElementById("roundInput");
 
 // Words
@@ -249,7 +248,6 @@ const endGame = () => {
   endGameScore.innerText = state.score;
   endGameRound.innerText = state.round - 1;
   scoreInput.value = state.score;
-  usernameInput.value = "Maximus";
   roundInput.value = state.round - 1;
   show(endGameScoreWrapper);
 
