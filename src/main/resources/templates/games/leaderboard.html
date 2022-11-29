@@ -58,7 +58,7 @@
     <h4 class="mb-4">Leaderboards</h4>
 
     <div class="card mb-2" th:each="games, iterationNumber : ${games}">
-        <div class="card-body">
+        <div th:attr="class=${iterationNumber.index == 0 ? 'card-body leaderboard-top-one-card' : 'card-body'}">
             <div class="d-flex">
                 <div class="me-auto">
                     <span th:text="${iterationNumber.index + 1}"></span>.
@@ -78,6 +78,10 @@
             </div>
         </div>
     </div>
+</div>
+
+<div th:if="${games.empty}">
+    <p class="text-danger text-center mt-4">There are no available game records</p>
 </div>
 
 <script
