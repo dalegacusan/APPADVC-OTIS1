@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UsersController {
     @Autowired
     private UsersService usersService;
+
+    @GetMapping("/home")
+    public String redirectToHome(){
+        return "users/home";
+    }
+
+    @GetMapping("/history")
+    public String redirectToGameHistory(){
+        return "users/history";
+    }
+
+    @GetMapping("/leaderboards")
+    public String redirectToLeaderboards(){
+        return "users/leaderboard";
+    }
 
     @PostMapping("/signUp")
     public String signUp(
@@ -32,7 +48,7 @@ public class UsersController {
 
         usersService.addOne(user);
 
-        return "users/home";
+        return "redirect:/users/home";
     }
 
     @PostMapping("/signIn")
@@ -52,6 +68,6 @@ public class UsersController {
             return "authentication/signIn";
         }
 
-        return "users/home";
+        return "redirect:/users/home";
     }
 }
