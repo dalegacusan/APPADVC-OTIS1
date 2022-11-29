@@ -43,7 +43,11 @@ public class GamesController {
     }
 
     @GetMapping("/leaderboards")
-    public String redirectToLeaderboards(){
+    public String redirectToLeaderboards(Model model){
+        List<Games> games = gamesService.findAllForLeaderboard();
+
+        model.addAttribute("games", games);
+        
         return "games/leaderboard";
     }
 

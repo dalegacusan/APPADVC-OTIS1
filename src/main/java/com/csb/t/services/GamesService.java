@@ -34,4 +34,8 @@ public class GamesService {
     public List<Games> findAllByUser(Users users){
         return gamesRepository.findAllByUsersOrderByDatecreatedDesc(users);
     }
+
+    public List<Games> findAllForLeaderboard(){
+        return gamesRepository.findTop10ByOrderByScoreDesc();
+    }
 }

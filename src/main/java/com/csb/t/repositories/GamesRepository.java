@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface GamesRepository extends CrudRepository<Games, Long> {
     List<Games> findAllByUsersOrderByDatecreatedDesc(Users users);
+
+    List<Games> findTop10ByOrderByScoreDesc();
 }

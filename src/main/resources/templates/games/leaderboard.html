@@ -57,93 +57,24 @@
 <div class="container-sm leaderboards-container" style="margin-top: 60px">
     <h4 class="mb-4">Leaderboards</h4>
 
-    <div class="card mb-2">
+    <div class="card mb-2" th:each="games, iterationNumber : ${games}">
         <div class="card-body">
             <div class="d-flex">
-                <div class="me-auto">1. Username</div>
-                <div class="me-5">241.32 wpm</div>
-                <div>2115 points</div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="d-flex">
-                <div class="me-auto">2. Username</div>
-                <div class="me-5">176.00 wpm</div>
-                <div>1566 points</div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="d-flex">
-                <div class="me-auto">3. Username</div>
-                <div class="me-5">178.90 wpm</div>
-                <div>786 points</div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="d-flex">
-                <div class="me-auto">4. Username</div>
-                <div class="me-5">51.76 wpm</div>
-                <div>289 points</div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="d-flex">
-                <div class="me-auto">5. Username</div>
-                <div class="me-5">45.00 wpm</div>
-                <div>218 points</div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="d-flex">
-                <div class="me-auto">6. Username</div>
-                <div class="me-5">67.90 wpm</div>
-                <div>214 points</div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="d-flex">
-                <div class="me-auto">7. Username</div>
-                <div class="me-5">98.99 wpm</div>
-                <div>102 points</div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="d-flex">
-                <div class="me-auto">8. Username</div>
-                <div class="me-5">32.89 wpm</div>
-                <div>87 points</div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="d-flex">
-                <div class="me-auto">9. Username</div>
-                <div class="me-5">23.00 wpm</div>
-                <div>56 points</div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="d-flex">
-                <div class="me-auto">10. Username</div>
-                <div class="me-5">32.22 wpm</div>
-                <div>12 points</div>
+                <div class="me-auto">
+                    <span th:text="${iterationNumber.index + 1}"></span>.
+                    <span th:text="${games.Users.Username}"></span>
+                </div>
+                <div class="me-5">
+                    Round
+                    <span th:text="${games.Round}"></span>
+                </div>
+                <div class="me-5">
+                    <span th:text="${games.Score}"></span>
+                    points
+                </div>
+                <div>
+                    <span class="text-muted" th:text="${#dates.format(new java.util.Date(games.Datecreated), 'MMM. dd yyyy HH:mm')}"></span>
+                </div>
             </div>
         </div>
     </div>
