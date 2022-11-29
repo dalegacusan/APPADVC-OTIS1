@@ -43,7 +43,7 @@ public class UsersController {
         if(bindingResult.hasErrors()){
             model.addAttribute("newUser", user);
 
-            return "authentication/signUp";
+            return "redirect:/signUp";
         }
 
         usersService.addOne(user);
@@ -59,13 +59,17 @@ public class UsersController {
         if(bindingResult.hasErrors()){
             model.addAttribute("existingUser", user);
 
-            return "authentication/signIn";
+            return "redirect:/signIn";
         }
 
         Users existingUser = usersService.findOneByEmail(user.getEmailAddress());
 
         if(existingUser == null){
-            return "authentication/signIn";
+            return "redirect:/signIn";
+        }
+
+        if(existingUser.getPassword().equals(user.getPassword()) == false){
+            return "redirect:/signIn";
         }
 
         return "redirect:/users/home";

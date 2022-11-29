@@ -11,6 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping()
 public class AuthenticationController {
     @GetMapping("/")
+    public String defaultRedirect(Model model){
+        model.addAttribute("existingUser", new SignInDTO());
+
+        return "redirect:/signIn";
+    }
+
+    @GetMapping("/signIn")
     public String signIn(Model model){
         model.addAttribute("existingUser", new SignInDTO());
 
