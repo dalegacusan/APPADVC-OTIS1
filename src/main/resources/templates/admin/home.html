@@ -78,9 +78,13 @@
                     <span th:text="${#dates.format(new java.util.Date(games.Datecreated), 'MMM. dd yyyy HH:mm')}"></span>
                 </td>
                 <td>
-                    <a th:href="@{/users/admin}">
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </a>
+                    <form th:method="DELETE" th:action="@{/games}" th:object="${existingGame}">
+                        <input type="hidden" th:value="${games.Gameid}" th:name="gameid"/>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+
+                        <p th:if="${#fields.hasErrors('gameid')}"
+                           th:text="${#strings.listJoin(#fields.errors('gameid'), ', ')}" class="text-danger"></p>
+                    </form>
                 </td>
             </tr>
         </tbody>

@@ -1,5 +1,6 @@
 package com.csb.t.services;
 
+import com.csb.t.dtos.DeleteGameDTO;
 import com.csb.t.dtos.SaveGameDTO;
 import com.csb.t.entities.Games;
 import com.csb.t.entities.Users;
@@ -29,6 +30,10 @@ public class GamesService {
         newGame.setUsers(testUser);
 
         return gamesRepository.save(newGame);
+    }
+
+    public void deleteOne(DeleteGameDTO game) {
+        gamesRepository.deleteById(game.getGameid());
     }
 
     public List<Games> findAllByUser(Users users){

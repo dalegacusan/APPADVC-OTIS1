@@ -95,11 +95,11 @@
             </p>
 
             <form th:method="POST" th:action="@{/games}" th:object="${newGame}">
-                <input type="hidden" value="" id="scoreInput" name="score" th:field="*{score}"/>
+                <input type="hidden" value="" id="scoreInput" th:name="score" th:field="*{score}"/>
                 <p th:if="${#fields.hasErrors('score')}"
                    th:text="${#strings.listJoin(#fields.errors('score'), ', ')}" class="text-danger"></p>
 
-                <input type="hidden" value="" id="roundInput" name="round" th:field="*{round}"/>
+                <input type="hidden" value="" id="roundInput" th:name="round" th:field="*{round}"/>
                 <p th:if="${#fields.hasErrors('round')}"
                    th:text="${#strings.listJoin(#fields.errors('round'), ', ')}" class="text-danger"></p>
 

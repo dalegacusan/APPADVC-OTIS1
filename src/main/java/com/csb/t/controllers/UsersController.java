@@ -1,5 +1,6 @@
 package com.csb.t.controllers;
 
+import com.csb.t.dtos.DeleteGameDTO;
 import com.csb.t.dtos.SignUpDTO;
 import com.csb.t.dtos.SignInDTO;
 import com.csb.t.entities.Games;
@@ -27,6 +28,7 @@ public class UsersController {
     public String redirectToAdminHome(Model model){
         List<Games> games = usersService.findAllGames();
 
+        model.addAttribute("existingGame", new DeleteGameDTO());
         model.addAttribute("games", games);
 
         return "admin/home";

@@ -1,5 +1,6 @@
 package com.csb.t.controllers;
 
+import com.csb.t.dtos.DeleteGameDTO;
 import com.csb.t.dtos.SaveGameDTO;
 import com.csb.t.entities.Games;
 import com.csb.t.entities.Users;
@@ -10,10 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -47,7 +45,7 @@ public class GamesController {
         List<Games> games = gamesService.findAllForLeaderboard();
 
         model.addAttribute("games", games);
-        
+
         return "games/leaderboard";
     }
 
@@ -64,5 +62,20 @@ public class GamesController {
         gamesService.addOne(game);
 
         return "redirect:/games/history";
+    }
+
+    @DeleteMapping()
+    public String deleteGame(@Validated @ModelAttribute("existingGame") DeleteGameDTO game,
+                             BindingResult bindingResult,
+                             Model model){
+        if(bindingResult.hasErrors()){
+            model.addAttribute("existingGame", game);
+
+            return "redirect:/users/admin";
+        }
+
+        gamesService.deleteOne(game);
+
+        return "redirect:/users/admin";
     }
 }
