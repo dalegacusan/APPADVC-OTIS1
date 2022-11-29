@@ -1,6 +1,5 @@
 package com.csb.t.controllers;
 
-import com.csb.t.dtos.SaveGameDTO;
 import com.csb.t.dtos.SignUpDTO;
 import com.csb.t.dtos.SignInDTO;
 import com.csb.t.entities.Users;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

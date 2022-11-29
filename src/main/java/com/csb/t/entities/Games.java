@@ -1,6 +1,9 @@
 package com.csb.t.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Games")
@@ -37,6 +40,14 @@ public class Games {
         this.round = round;
     }
 
+    public LocalDateTime getDatecreated() {
+        return datecreated;
+    }
+
+    public void setDatecreated(LocalDateTime datecreated) {
+        this.datecreated = datecreated;
+    }
+
     @Id
     @GeneratedValue(strategy =
             GenerationType.IDENTITY)
@@ -51,6 +62,10 @@ public class Games {
 
     @Column(name = "round", nullable = false)
     private int round;
+
+    @Column(name = "datecreated", updatable = false, nullable = false, columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP")
+    @CreationTimestamp
+    private LocalDateTime datecreated;
 
     public Games(){}
 }

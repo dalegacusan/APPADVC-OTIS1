@@ -54,43 +54,39 @@
     </div>
 </nav>
 
-<div class="container-sm" style="margin-top: 60px">
+<div class="container-sm" style="margin-top: 60px" >
     <h4>Game History Page</h4>
     <div class="d-flex">
         <div class="py-2 flex-grow-1">
             <p class="text-start fw-light">Hello, Username</p>
         </div>
         <div class="py-2">
-            <p class="text-end fw-light">Showing 2 records</p>
-        </div>
+            <p class="text-end fw-light">
+                Showing
+                <span th:text="${#arrays.length(games)}"></span>
+                records
+            </p>
+        </s>
     </div>
 
-    <h6 class="text-start">High Score</h6>
-    <div class="card mb-4">
-        <div class="card-body" style="background-color: #a9e34c">
-            <div class="d-flex">
-                <div class="me-auto">Username</div>
-                <div class="me-5">51.76 wpm</div>
-                <div>289 points</div>
-            </div>
-        </div>
+    <div th:if="${games.empty}">
+        <p class="text-danger text-center mt-4">You have no game records</p>
     </div>
 
-    <div class="card mb-2">
+    <div class="card mb-2" th:each="games : ${games}">
         <div class="card-body">
             <div class="d-flex">
-                <div class="me-auto">Username</div>
-                <div class="me-5">32.89 wpm</div>
-                <div>87 points</div>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <div class="d-flex">
-                <div class="me-auto">Username</div>
-                <div class="me-5">51.76 wpm</div>
-                <div>289 points</div>
+                <div class="me-auto">
+                    <span th:text="${games.Users.Username}"></span>
+                </div>
+                <div class="me-5">
+                    Round
+                    <span th:text="${games.Round}"></span>
+                </div>
+                <div>
+                    <span th:text="${games.Score}"></span>
+                    points
+                </div>
             </div>
         </div>
     </div>

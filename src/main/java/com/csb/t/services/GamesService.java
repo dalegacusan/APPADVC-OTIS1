@@ -6,6 +6,9 @@ import com.csb.t.entities.Users;
 import com.csb.t.repositories.GamesRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Service
 public class GamesService {
     private GamesRepository gamesRepository;
@@ -18,6 +21,7 @@ public class GamesService {
         Games newGame = new Games();
         newGame.setScore(game.getScore());
         newGame.setRound(game.getRound());
+        newGame.setDatecreated(LocalDateTime.now());
 
         Users testUser = new Users();
         testUser.setUserid(Long.parseLong("11"));
@@ -25,5 +29,9 @@ public class GamesService {
         newGame.setUsers(testUser);
 
         return gamesRepository.save(newGame);
+    }
+
+    public List<Games> findAllByUser(Users users){
+        return gamesRepository.findAllByUsers(users);
     }
 }
