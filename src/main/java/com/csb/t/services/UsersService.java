@@ -1,19 +1,24 @@
 package com.csb.t.services;
 
 import com.csb.t.dtos.SignUpDTO;
+import com.csb.t.entities.Games;
 import com.csb.t.entities.Users;
+import com.csb.t.repositories.GamesRepository;
 import com.csb.t.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class UsersService {
     private UsersRepository usersRepository;
+    private GamesRepository gamesRepository;
 
-    public UsersService(UsersRepository uRepository){
+    public UsersService(UsersRepository uRepository, GamesRepository gRepository){
         this.usersRepository = uRepository;
+        this.gamesRepository = gRepository;
     }
 
     public Users addOne(SignUpDTO user){
@@ -30,6 +35,10 @@ public class UsersService {
 
     public Users findOneByEmail(String email){
         return usersRepository.findByEmail(email);
+    }
+
+    public List<Games> findAllGames(){
+        return gamesRepository.findAllByOrderByDatecreatedDesc();
     }
 }
 
