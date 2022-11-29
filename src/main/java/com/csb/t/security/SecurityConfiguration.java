@@ -6,6 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -33,16 +34,20 @@ public class SecurityConfiguration {
                 .and()
                 .csrf()
                     .disable()
-                .authorizeHttpRequests(requests -> requests.requestMatchers("/", "/signIn*", "/signUp*")
-                        .anonymous().anyRequest()
-                        .authenticated().and()
-                        ).formLogin()
-                .loginPage("/signIn")
-                .defaultSuccessUrl("/users/home", true)
-                .usernameParameter("emailAddress")
+//                Any pages na authorized na anonymous (ex. Home Page, About Page)
+                .authorizeHttpRequests(requests -> requests
+                                .requestMatchers("/", "/signIn", "/signUp", "/users/signIn", "/users/signUp")
+                                .anonymous()
+                                .anyRequest()
+                                .authenticated()
+                        )
+                .formLogin()
+                    .loginPage("/signIn")
+                    .defaultSuccessUrl("/users/home", true)
+                    .usernameParameter("emailAddress")
                 .and()
-                .logout()
-                .permitAll();
+                    .logout()
+                    .permitAll();
 
 
         return http.build();
