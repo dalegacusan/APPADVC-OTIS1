@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface GamesRepository extends CrudRepository<Games, Long> {
-    List<Games> findAllByUsers(Users users);
+    List<Games> findAllByUsersOrderByDatecreatedDesc(Users users);
 }

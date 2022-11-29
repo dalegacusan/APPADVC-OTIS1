@@ -32,6 +32,6 @@ public class GamesService {
     }
 
     public List<Games> findAllByUser(Users users){
-        return gamesRepository.findAllByUsers(users);
+        return gamesRepository.findAllByUsersOrderByDatecreatedDesc(users);
     }
 }

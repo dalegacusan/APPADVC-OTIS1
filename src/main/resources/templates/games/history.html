@@ -66,11 +66,7 @@
                 <span th:text="${#arrays.length(games)}"></span>
                 records
             </p>
-        </s>
-    </div>
-
-    <div th:if="${games.empty}">
-        <p class="text-danger text-center mt-4">You have no game records</p>
+        </div>
     </div>
 
     <div class="card mb-2" th:each="games : ${games}">
@@ -83,13 +79,20 @@
                     Round
                     <span th:text="${games.Round}"></span>
                 </div>
-                <div>
+                <div class="me-5">
                     <span th:text="${games.Score}"></span>
                     points
+                </div>
+                <div>
+                    <span class="text-muted" th:text="${#dates.format(new java.util.Date(games.Datecreated), 'MMM. dd yyyy HH:mm')}"></span>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<div th:if="${games.empty}">
+    <p class="text-danger text-center mt-4">You have no game records</p>
 </div>
 
 <script
