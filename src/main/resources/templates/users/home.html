@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" th:href="@{images/typer.png}" type="image/x-icon" />
+    <link rel="shortcut icon" th:href="@{~/images/typer.png}" type="image/x-icon" />
 
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -13,7 +13,7 @@
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="\styles\index.css" />
+    <link rel="stylesheet" th:href="@{~/styles/index.css}" />
 
     <title>Home - Typer</title>
 </head>
@@ -94,13 +94,18 @@
                 <span id="end_game_round" class="fw-bold">0</span>!
             </p>
 
-                <input type="hidden" value="" id="scoreInput" />
-                <input type="hidden" value="" id="usernameInput" />
-                <input type="hidden" value="" id="roundInput" />
+            <form th:method="POST" th:action="@{/games}" th:object="${newGame}">
+                <input type="hidden" value="" id="scoreInput" name="score" th:field="*{score}"/>
+                <p th:if="${#fields.hasErrors('score')}"
+                   th:text="${#strings.listJoin(#fields.errors('score'), ', ')}" class="text-danger"></p>
 
-            <a th:href="@{/guest}">
+                <input type="hidden" value="" id="roundInput" name="round" th:field="*{round}"/>
+                <p th:if="${#fields.hasErrors('round')}"
+                   th:text="${#strings.listJoin(#fields.errors('round'), ', ')}" class="text-danger"></p>
+
                 <button type="submit" class="btn btn-primary">Save Record</button>
-            </a>
+            </form>
+
         </div>
     </div>
 </div>
@@ -111,6 +116,6 @@
         crossorigin="anonymous"
 ></script>
 
-<script src="\scripts\home.js"></script>
+<script type="text/javascript" th:src="@{~/scripts/home.js}"></script>
 </body>
 </html>

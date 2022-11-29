@@ -1,5 +1,6 @@
 package com.csb.t.controllers;
 
+import com.csb.t.dtos.SaveGameDTO;
 import com.csb.t.dtos.SignUpDTO;
 import com.csb.t.dtos.SignInDTO;
 import com.csb.t.entities.Users;
@@ -21,7 +22,9 @@ public class UsersController {
     private UsersService usersService;
 
     @GetMapping("/home")
-    public String redirectToHome(){
+    public String redirectToHome(Model model){
+        model.addAttribute("newGame", new SaveGameDTO());
+
         return "users/home";
     }
 
