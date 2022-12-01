@@ -1,53 +1,19 @@
 package com.csb.t.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "Games")
 public class Games {
-    public Long getGameid() {
-        return gameid;
-    }
-
-    public void setGameid(Long gameid) {
-        this.gameid = gameid;
-    }
-
-    public Users getUsers() {
-        return users;
-    }
-
-    public void setUsers(Users users) {
-        this.users = users;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public int getRound() {
-        return round;
-    }
-
-    public void setRound(int round) {
-        this.round = round;
-    }
-
-    public LocalDateTime getDatecreated() {
-        return datecreated;
-    }
-
-    public void setDatecreated(LocalDateTime datecreated) {
-        this.datecreated = datecreated;
-    }
-
     @Id
     @GeneratedValue(strategy =
             GenerationType.IDENTITY)
@@ -66,6 +32,4 @@ public class Games {
     @Column(name = "datecreated", updatable = false, nullable = false, columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP")
     @CreationTimestamp
     private LocalDateTime datecreated;
-
-    public Games(){}
 }

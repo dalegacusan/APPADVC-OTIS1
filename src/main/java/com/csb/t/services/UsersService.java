@@ -27,8 +27,8 @@ public class UsersService {
 
         newUser.setUsername(user.getUsername());
         newUser.setEmail(user.getEmailAddress());
-        newUser.setDateCreated(LocalDateTime.now());
-        newUser.setRoleId(1);
+        newUser.setDatecreated(LocalDateTime.now());
+        newUser.setRoleid(1);
         newUser.setPassword(user.getPassword());
 
         return usersRepository.save(newUser);

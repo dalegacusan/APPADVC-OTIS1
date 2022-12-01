@@ -1,7 +1,13 @@
 package com.csb.t.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "Roles")
 public class Roles {
@@ -12,6 +18,4 @@ public class Roles {
 
     @Column(name = "role", nullable = false, length = 50)
     private String role;
-
-    public Roles(){}
 }

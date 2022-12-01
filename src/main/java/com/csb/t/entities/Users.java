@@ -1,9 +1,15 @@
 package com.csb.t.entities;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "Users")
 public class Users {
@@ -27,54 +33,4 @@ public class Users {
     @Column(name = "datecreated", updatable = false, nullable = false)
     @CreationTimestamp
     private LocalDateTime datecreated;
-
-    public Long getUserid() {
-        return userid;
-    }
-
-    public void setUserid(Long userid) {
-        this.userid = userid;
-    }
-
-    public String getUsername() {
-        return this.username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getRoleId() {
-        return this.roleid;
-    }
-
-    public void setRoleId(int roleId) {
-        this.roleid = roleId;
-    }
-
-    public LocalDateTime getDateCreated() {
-        return this.datecreated;
-    }
-
-    public void setDateCreated(LocalDateTime dateCreated) {
-        this.datecreated = dateCreated;
-    }
-
-    public Users(){}
 }

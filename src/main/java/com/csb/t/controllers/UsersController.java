@@ -67,7 +67,7 @@ public class UsersController {
             return "redirect:/signIn";
         }
 
-        if(existingUser.getRoleId() == 2){
+        if(existingUser.getRoleid() == 2){
             return "redirect:/users/admin";
         }
 
