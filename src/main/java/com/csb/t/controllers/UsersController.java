@@ -61,13 +61,9 @@ public class UsersController {
             return "redirect:/signIn";
         }
 
-        Users existingUser = usersService.findOneByEmail(user.getEmailAddress());
+        Users existingUser = usersService.validateUser(user);
 
         if(existingUser == null){
-            return "redirect:/signIn";
-        }
-
-        if(existingUser.getPassword().equals(user.getPassword()) == false){
             return "redirect:/signIn";
         }
 

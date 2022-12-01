@@ -1,5 +1,6 @@
 package com.csb.t.services;
 
+import com.csb.t.dtos.SignInDTO;
 import com.csb.t.dtos.SignUpDTO;
 import com.csb.t.entities.Games;
 import com.csb.t.entities.Users;
@@ -39,6 +40,20 @@ public class UsersService {
 
     public List<Games> findAllGames(){
         return gamesRepository.findAllByOrderByDatecreatedDesc();
+    }
+
+    public Users validateUser(SignInDTO user){
+        Users existingUser = this.findOneByEmail(user.getEmailAddress());
+
+        if(existingUser == null){
+            return null;
+        }
+
+        if(existingUser.getPassword().equals(user.getPassword()) == false){
+            return null;
+        }
+
+        return existingUser;
     }
 }
 
